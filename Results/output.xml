@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-03-10T15:08:08.568421" rpa="false" schemaversion="5">
+<suite id="s1" name="TC1" source="C:\Users\101364631\PycharmProjects\beeEngineering\TestCases\TC1.robot">
+<test id="s1-t1" name="Verify the shopping cart displays the correct value for two items" line="26">
+<kw name="prepare execution" owner="CommonFunctions" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:08.688411" level="INFO">Opening browser 'firefox' to base url 'https://automationexercise.com/'.</msg>
+<arg>${theUrl}</arg>
+<arg>${theBrowser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-10T15:08:08.688411" elapsed="16.233522"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-03-10T15:08:24.921933" elapsed="0.264296"/>
+</kw>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<status status="PASS" start="2024-03-10T15:08:08.687411" elapsed="16.499825"/>
+</kw>
+<kw name="click on the products option" owner="HeaderPage">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:25.187761" level="INFO">Clicking link 'xpath://header/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]'.</msg>
+<arg>xpath://header/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:25.187236" elapsed="0.061607"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id:search_product</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-03-10T15:08:25.248843" elapsed="2.062948"/>
+</kw>
+<status status="PASS" start="2024-03-10T15:08:25.187236" elapsed="2.124555"/>
+</kw>
+<kw name="search product" owner="SearchAndAddToCartFunctions">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:27.312791" level="INFO">Typing text 'men tshirt' into text field 'id:search_product'.</msg>
+<arg>id:search_product</arg>
+<arg>${theSearchTerm}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:27.312791" elapsed="0.099853"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:27.413653" level="INFO">Clicking button 'id:submit_search'.</msg>
+<arg>id:submit_search</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:27.413653" elapsed="6.379502"/>
+</kw>
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == "complete"</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2024-03-10T15:08:33.793155" elapsed="0.003989"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:33.802145" level="INFO">Current page contains text 'Searched Products'.</msg>
+<arg>${thePageSearchState}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-10T15:08:33.797144" elapsed="0.005001"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:33.805154" level="INFO">Current page contains text 'View Product'.</msg>
+<arg>${theCardElement}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-10T15:08:33.802145" elapsed="0.003009"/>
+</kw>
+<kw name="Mouse Down" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:33.806154" level="INFO">Simulating Mouse Down on element 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]</arg>
+<doc>Simulates pressing the left mouse button on the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:33.805154" elapsed="0.275909"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div/h2</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-10T15:08:34.081063" elapsed="0.010540"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:34.097916" level="INFO">${thePrice} = Rs. 400</msg>
+<var>${thePrice}</var>
+<arg>xpath://body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h2[1]</arg>
+<arg>innerText</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:34.091603" elapsed="0.006313"/>
+</kw>
+<kw name="Mouse Up" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:34.097916" level="INFO">Simulating Mouse Up on element 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]</arg>
+<doc>Simulates releasing the left mouse button on the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:34.097916" elapsed="0.291581"/>
+</kw>
+<return>
+<value>${thePrice}</value>
+<status status="PASS" start="2024-03-10T15:08:34.389497" elapsed="0.000990"/>
+</return>
+<msg time="2024-03-10T15:08:34.390487" level="INFO">${itemPrice1} = Rs. 400</msg>
+<var>${itemPrice1}</var>
+<arg>${searchTerm1}</arg>
+<arg>${pageSearchState}</arg>
+<arg>${cardElement}</arg>
+<status status="PASS" start="2024-03-10T15:08:27.311791" elapsed="7.078696"/>
+</kw>
+<kw name="add product to shopping cart" owner="SearchAndAddToCartFunctions">
+<kw name="Mouse Down" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:34.390487" level="INFO">Simulating Mouse Down on element 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]</arg>
+<doc>Simulates pressing the left mouse button on the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:34.390487" elapsed="0.278700"/>
+</kw>
+<kw name="Mouse Up" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:34.670197" level="INFO">Simulating Mouse Up on element 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]</arg>
+<doc>Simulates releasing the left mouse button on the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:34.669187" elapsed="0.278103"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div/h2</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-10T15:08:34.947290" elapsed="0.009480"/>
+</kw>
+<kw name="Set Focus To Element" owner="SeleniumLibrary">
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:34.956770" elapsed="0.003005"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:34.959775" level="INFO">Clicking link 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:34.959775" elapsed="0.209514"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="cartModal"]/div/div/div[3]/button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-10T15:08:35.170292" elapsed="0.840013"/>
+</kw>
+<kw name="Set Focus To Element" owner="SeleniumLibrary">
+<arg>xpath://*[@id="cartModal"]/div/div/div[3]/button</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:36.010305" elapsed="0.004003"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:36.014308" level="INFO">Clicking element 'xpath://*[@id="cartModal"]/div/div/div[3]/button'.</msg>
+<arg>xpath://*[@id="cartModal"]/div/div/div[3]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:36.014308" elapsed="0.214039"/>
+</kw>
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == "complete"</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2024-03-10T15:08:36.228347" elapsed="0.001998"/>
+</kw>
+<status status="PASS" start="2024-03-10T15:08:34.390487" elapsed="1.839858"/>
+</kw>
+<kw name="search product" owner="SearchAndAddToCartFunctions">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:36.231345" level="INFO">Typing text 'blue top' into text field 'id:search_product'.</msg>
+<arg>id:search_product</arg>
+<arg>${theSearchTerm}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:36.231345" elapsed="0.027545"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:36.258890" level="INFO">Clicking button 'id:submit_search'.</msg>
+<arg>id:submit_search</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:36.258890" elapsed="6.779421"/>
+</kw>
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == "complete"</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2024-03-10T15:08:43.038311" elapsed="0.005016"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:43.047339" level="INFO">Current page contains text 'Searched Products'.</msg>
+<arg>${thePageSearchState}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-10T15:08:43.043327" elapsed="0.004012"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:43.051327" level="INFO">Current page contains text 'View Product'.</msg>
+<arg>${theCardElement}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-10T15:08:43.047339" elapsed="0.003988"/>
+</kw>
+<kw name="Mouse Down" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:43.052337" level="INFO">Simulating Mouse Down on element 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]</arg>
+<doc>Simulates pressing the left mouse button on the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:43.051327" elapsed="0.287596"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div/h2</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-10T15:08:43.338923" elapsed="0.018005"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:43.374440" level="INFO">${thePrice} = Rs. 500</msg>
+<var>${thePrice}</var>
+<arg>xpath://body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h2[1]</arg>
+<arg>innerText</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:43.356928" elapsed="0.017512"/>
+</kw>
+<kw name="Mouse Up" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:43.374440" level="INFO">Simulating Mouse Up on element 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]</arg>
+<doc>Simulates releasing the left mouse button on the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:43.374440" elapsed="0.258053"/>
+</kw>
+<return>
+<value>${thePrice}</value>
+<status status="PASS" start="2024-03-10T15:08:43.632493" elapsed="0.000000"/>
+</return>
+<msg time="2024-03-10T15:08:43.633481" level="INFO">${itemPrice2} = Rs. 500</msg>
+<var>${itemPrice2}</var>
+<arg>${searchTerm2}</arg>
+<arg>${pageSearchState}</arg>
+<arg>${cardElement}</arg>
+<status status="PASS" start="2024-03-10T15:08:36.230345" elapsed="7.403136"/>
+</kw>
+<kw name="add product to shopping cart" owner="SearchAndAddToCartFunctions">
+<kw name="Mouse Down" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:43.633481" level="INFO">Simulating Mouse Down on element 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]</arg>
+<doc>Simulates pressing the left mouse button on the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:43.633481" elapsed="0.275365"/>
+</kw>
+<kw name="Mouse Up" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:43.909859" level="INFO">Simulating Mouse Up on element 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]</arg>
+<doc>Simulates releasing the left mouse button on the element ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:43.909859" elapsed="0.280101"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div/h2</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-10T15:08:44.189960" elapsed="0.007988"/>
+</kw>
+<kw name="Set Focus To Element" owner="SeleniumLibrary">
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:44.197948" elapsed="0.003011"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:44.200959" level="INFO">Clicking link 'xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]'.</msg>
+<arg>xpath://body/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:44.200959" elapsed="0.215211"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="cartModal"]/div/div/div[3]/button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-10T15:08:44.416170" elapsed="0.845217"/>
+</kw>
+<kw name="Set Focus To Element" owner="SeleniumLibrary">
+<arg>xpath://*[@id="cartModal"]/div/div/div[3]/button</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:45.262393" elapsed="0.011987"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:45.274380" level="INFO">Clicking element 'xpath://*[@id="cartModal"]/div/div/div[3]/button'.</msg>
+<arg>xpath://*[@id="cartModal"]/div/div/div[3]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:45.274380" elapsed="0.209662"/>
+</kw>
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == "complete"</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2024-03-10T15:08:45.484042" elapsed="0.003001"/>
+</kw>
+<status status="PASS" start="2024-03-10T15:08:43.633481" elapsed="1.853562"/>
+</kw>
+<kw name="click on the cart option" owner="HeaderPage">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:45.488050" level="INFO">Clicking link 'xpath://*[@id="header"]/div/div/div/div[2]/div/ul/li[3]/a'.</msg>
+<arg>xpath://*[@id="header"]/div/div/div/div[2]/div/ul/li[3]/a</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-10T15:08:45.488050" elapsed="2.037814"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id:cart_info_table</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-03-10T15:08:47.525864" elapsed="0.011001"/>
+</kw>
+<status status="PASS" start="2024-03-10T15:08:45.487043" elapsed="2.049822"/>
+</kw>
+<kw name="validate shopping cart" owner="ShoppingCartOperations">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:47.540864" level="INFO">Current page contains text 'Men Tshirt'.</msg>
+<arg>${theProductCart1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-10T15:08:47.536865" elapsed="0.003999"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:47.543865" level="INFO">Current page contains text 'Blue Top'.</msg>
+<arg>${theProductCart2}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-10T15:08:47.540864" elapsed="0.003001"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:47.546864" level="INFO">Current page contains text 'Rs. 400'.</msg>
+<arg>${theItemPrice1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-10T15:08:47.543865" elapsed="0.002999"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-03-10T15:08:47.550869" level="INFO">Current page contains text 'Rs. 500'.</msg>
+<arg>${theItemPrice2}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-03-10T15:08:47.546864" elapsed="0.004005"/>
+</kw>
+<arg>${productCart1}</arg>
+<arg>${productCart2}</arg>
+<arg>${itemPrice1}</arg>
+<arg>${itemPrice2}</arg>
+<status status="PASS" start="2024-03-10T15:08:47.536865" elapsed="0.014004"/>
+</kw>
+<kw name="finish test case" owner="CommonFunctions" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-03-10T15:08:47.551870" elapsed="2.876946"/>
+</kw>
+<status status="PASS" start="2024-03-10T15:08:47.551870" elapsed="2.877955"/>
+</kw>
+<doc>This test case verifies search, shopping cart addition and total value for two items</doc>
+<tag>Functional</tag>
+<status status="PASS" start="2024-03-10T15:08:08.687411" elapsed="41.742414"/>
+</test>
+<doc>Search Items And Shopping Cart Functionality</doc>
+<status status="PASS" start="2024-03-10T15:08:08.570413" elapsed="41.859412"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Functional</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TC1">TC1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
